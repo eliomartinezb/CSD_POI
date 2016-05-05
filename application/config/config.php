@@ -16,9 +16,9 @@ return array(
 
 	'DB_TYPE' => 'mysql',
 	'DB_HOST' => '127.0.0.1',
-	'DB_NAME' => 'pguees',
-	'DB_USER' => 'pguees',
-	'DB_PASS' => 'pguees',
+	'DB_NAME' => 'POI',
+	'DB_USER' => 'poi',
+	'DB_PASS' => 'poi123456',
 // 	'DB_PORT' => '3306',
 	'DB_PORT' => '8889',
 	'DB_CHARSET' => 'utf8',

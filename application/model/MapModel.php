@@ -7,7 +7,7 @@ class MapModel {
 		$lat = Request::post('lat');
 		$long = Request::post('long');
 		$name = Request::post('name');
-		$desc = Request::post('desc')
+		$desc = Request::post('desc');
 
 		if (empty($lat)) {
 			$json['result'] = '0';
