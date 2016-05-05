@@ -1,0 +1,492 @@
+/************************************************************************
+// Table of Main CSS
+
+1. FONTS
+2. GENERAL SETTINGS
+3. NOTIFICATIONS
+4. PANEL
+5. FORMS
+6. HEADER
+7. MAIN
+8. TABLES
+
+************************************************************************/
+
+////////////////////////
+////    1. FONTS    ////
+////////////////////////
+
+/* Icomoon */
+@font-face {
+	font-family: 'icomoon';
+	src: url('../fonts/icomoon/icomoon.eot?eyrxnj');
+	src: url('../fonts/icomoon/icomoon.eot?eyrxnj#iefix') format('embedded-opentype'),
+	url('../fonts/icomoon/icomoon.ttf?eyrxnj') format('truetype'),
+	url('../fonts/icomoon/icomoon.woff?eyrxnj') format('woff'),
+	url('../fonts/icomoon/icomoon.svg?eyrxnj#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mail:before {
+    content: "\e900";
+}
+.icon-key:before {
+    content: "\e901";
+}
+.icon-edit:before {
+    content: "\e902";
+}
+.icon-search:before {
+    content: "\e903";
+}
+.icon-warning:before {
+    content: "\e904";
+}
+.icon-info:before {
+    content: "\e905";
+}
+.icon-error:before {
+    content: "\e906";
+}
+.icon-success:before {
+    content: "\e907";
+}
+.icon-arrow-right:before {
+    content: "\e908";
+}
+.icon-arrow-left:before {
+    content: "\e909";
+}
+
+/* Roboto */
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/roboto/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/roboto/Roboto-Bold.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+///////////////////////////////////
+////    2. GENERAL SETTINGS    ////
+///////////////////////////////////
+
+/* Colors */
+$first-color: #7a1632;
+$second-color: #a51e44;
+
+/* Prefix Mixin */
+@mixin prefix($property, $value, $prefixes: ()) {
+	@each $prefix in $prefixes {
+		#{'-' + $prefix + '-' + $property}: $value;
+	}
+	#{$property}: $value;
+}
+
+%clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+/* Reset */
+* {
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+	line-height: 25px;
+	margin: 0;
+	padding: 0;
+	@include prefix(box-sizing, border-box, webkit moz);
+}
+
+/* Default Settings */
+html,
+body {
+	@extend %clearfix;
+	height: 100%;
+	font-weight: 400;
+	background-color: lighten(#ddd, 10%);
+	color: #383838;
+}
+
+input {
+	border: none;
+	outline: none;
+	@include prefix(appearance, none, webkit moz);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.no-js {
+	display: none;
+}
+
+.btn1, .btn2 {
+	display: block;
+	width: 150px;
+	line-height: 25px;
+	border-radius: 3px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background-color: $first-color;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	&:hover {
+		background-color: darken($first-color, 5%);
+	}
+}
+
+.btn1.same-line, .btn2.same-line {
+	display: inline-block;
+	width: 50px;
+}
+
+.btn2 {
+	background-color: $second-color;
+	&:hover {
+		background-color: darken($second-color, 5%);
+	}
+}
+
+.link1, .link2 {
+	display: block;
+	margin-bottom: 20px;
+	text-align: center;
+	text-decoration: underline;
+	color: $first-color;
+}
+
+.link2 {
+	color: $second-color;
+}
+
+.act-btn {}
+
+////////////////////////////////
+////    3. NOTIFICATIONS    ////
+////////////////////////////////
+
+.notification, .notification2 {
+	position: relative;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	&.error {
+		background-color: #e68d84;
+		color: #83251b;
+		span {
+			background-color: lighten(#83251b, 20%);
+		}
+	}
+	&.success {
+		background-color: #97c57f;
+		color: #355325;
+		span {
+			background-color: lighten(#355325, 20%);
+		}
+	}
+	&.warning {
+		background-color: #feea9a;
+		color: #7d6502;
+		span {
+			background-color: lighten(#7d6502, 20%);
+		}
+	}
+	&.info {
+		background-color: #819edb;
+		color: #203a70;
+		span {
+			background-color: lighten(#203a70, 20%);
+		}
+	}
+	span {
+		position: absolute;
+		width: 30px;
+		height: 100%;
+		font-size: 16px;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	}
+	span::before {
+		position: absolute;
+		top: calc(50% - 8px);
+		left: calc(50% - 8px);
+		vertical-align: middle;
+	}
+	div {
+		line-height: 20px;
+		padding: 5px 5px 5px 35px;
+	}
+}
+
+////////////////////////
+////    4. PANEL    ////
+////////////////////////
+
+.panel {
+	margin: 30px auto;
+	padding: 15px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	@include prefix(box-shadow, 0 0 6px 3px #ddd, webkit ms);
+	.last {
+		margin-bottom: 0 !important;
+	}
+	&.small {
+		max-width: 320px;
+	}
+	&.full {
+		margin: 30px;
+	}
+	.logo {
+		margin-bottom: 20px;
+		text-align: center;
+		img {
+			width: 80px;
+			vertical-align: middle;
+		}
+	}
+	.title {
+		margin-bottom: 20px;
+		font-size: 18px;
+		font-weight: 700;
+		text-align: center;
+	}
+}
+
+////////////////////////
+////    5. FORMS    ////
+////////////////////////
+
+.input-container {
+	position: relative;
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	input {
+		width: 100%;
+		padding: 0 5px;
+	}
+	span {
+		position: absolute;
+		width: 25px;
+		line-height: 25px;
+		border-right: 1px solid #ddd;
+		text-align: center;
+	}
+	.has-icon {
+		padding-left: 30px;
+	}
+}
+
+.remember-me {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	input {
+		@include prefix(appearance, checkbox, webkit moz);
+	}
+}
+
+.radio-container {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	input {
+		@include prefix(appearance, radio !important, webkit moz);
+	}
+}
+
+.actions {
+	text-align: center;
+}
+
+/////////////////////////
+////    6. HEADER    ////
+/////////////////////////
+
+.header {
+	@media only screen and (min-width: 700px) {
+		float: left;
+		width: 320px;
+		height: 100%;
+		overflow: auto;
+	}
+	.menu {
+		height: 70px;
+		background-color: $first-color;
+		@media only screen and (min-width: 700px) {
+			height: 100%;
+		}
+		img {
+			width: 210px;
+			vertical-align: middle;
+			margin-left: 15px;
+			margin-top: 13px;
+		}
+		#toggle {
+			display: none;
+		}
+		label {
+			cursor: pointer;
+			position: absolute;
+			height: 32px;
+			width: 42px;
+			right: 10px;
+			top: 19px;
+			z-index: 3;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			@media only screen and (min-width: 700px) {
+				display: none;
+			}
+		}
+		.diagonal1, .horizontal, .diagonal2 {
+			position: absolute;
+			height: 4px;
+			width: 32px;
+			right: 5px;
+			background-color: #fff;
+		}
+		.diagonal1 {
+			top: 5px;
+		}
+		.horizontal {
+			top: 14px;
+		}
+		.diagonal2 {
+			top: 23px;
+		}
+		#toggle:not(checked) ~ .spinner > .diagonal1,
+		#toggle:not(checked) ~ .spinner > .diagonal2 {
+			transition: top 0.2s 0.4s ease, transform 0.2s ease;
+			-webkit-transition: top 0.2s 0.4s ease, transform 0.2s ease;
+		}
+		#toggle:checked ~ .spinner > .horizontal {
+			opacity: 0;
+		}
+		#toggle:checked ~ .spinner > .diagonal1 {
+			top: 14px;
+			transform: rotate(45deg);
+			transition: top 0.2s ease, transform 0.2s 0.4s ease;
+			-webkit-transition: top 0.2s ease, transform 0.2s 0.4s ease;
+		}
+		#toggle:checked ~ .spinner > .diagonal2 {
+			top: 14px;
+			transform: rotate(-45deg);
+			transition: top 0.2s ease, transform 0.2s 0.4s ease;
+			-webkit-transition: top 0.2s ease, transform 0.2s 0.4s ease;
+		}
+		#toggle:checked ~ .nav {
+			left: 0%;
+		}
+	}
+}
+
+.nav {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	top: 70px;
+	left: -100%;
+	background-color: $first-color;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	@include prefix(transition, all 0.8s ease, webkit moz);
+	@media only screen and (min-width: 700px) {
+		position: relative;
+		width: 320px;
+		top: 13px;
+		left: 0;
+	}
+	li {
+		list-style: none;
+		a {
+			display: inline-block;
+			width: 100%;
+			line-height: 70px;
+			letter-spacing: 2px;
+			&:hover {
+				background-color: darken($first-color, 10%);
+			}
+		}
+		span {
+			letter-spacing: 0;
+			font-weight: 400;
+			font-style: italic;
+			text-transform: capitalize;
+		}
+		.selected {
+			background-color: darken($first-color, 5%);
+		}
+	}
+}
+
+///////////////////////
+////    7. MAIN    ////
+///////////////////////
+
+.main {
+	@media only screen and (min-width: 700px) {
+		height: 100%;
+		overflow: auto;
+	}
+}
+
+///////////////////////
+////    8. TABLE   ////
+///////////////////////
+
+.table-container {
+	overflow: auto;
+	table {
+		width: 100%;
+		white-space: nowrap;
+		border-collapse: collapse;
+		th {
+			background-color: $first-color;
+			color: #fff;
+		}
+		td {
+			text-align: center;
+		}
+		tr {
+			border: 1px solid $first-color;
+		}
+		a {
+			display: block;
+			color: inherit;
+			width: 100%;
+			height: 100%;
+			padding: 10px;
+		}
+	}
+}	

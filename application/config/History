@@ -1,0 +1,36 @@
+15 de Enero
+Configuración del ambiente de desarrollo
+- apache
+- mysql
+- php
+- scss
+
+16 de Enero
+- Creación de la estructura del proyecto
+- Controlador de Login
+- Modelo de Login
+- Vista de Login
+- Modelo de Registro
+- Vista de Registro
+
+18 de Enero
+- Envio de correo para validar registro
+- Vista de Recuperación de Contraseña
+- Modelo de Recuperación de Contraseña
+
+19 de Enero
+- Terminar Modelo de Recuperación de contraseña
+- Grabar nueva contraseña en db
+- Validaciones de campos
+- Creación vista nueva contraseña
+	
+	Pendiente -> Perfil de Usuario
+
+20 de Enero
+- Controlador de Perfil de usuario
+- Modelo de Perfil de Usuario
+- Vistas para perfil y cambio de contraseña
+- En el modelo de Perfil al cambiar de correo se envía un correo similar como cuando se registra un usuario para confirmar el correo
+- En la clase View se agrego en el metodo renderFeedbackMessages el reset de notificaciones info (azules) y se agregó una línea para recordarle al usuario que verifique el correo en caso de no hacerlo
+	
+	Pendiente -> Administración de usuarios

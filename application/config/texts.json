@@ -1,0 +1,49 @@
+{
+	"notification": {
+		"success": {
+			"login-successful": "Login exitoso.",
+			"verification-mail-successful": "El usuario ha sido registrado y el correo de verificación ha sido enviado.",
+			"account-activated": "La cuenta ha sido activada.",
+			"email-pwd-sent": "El correo de recuperación de contraseña ha sido enviado.",
+			"pwd-reset-valid": "El código de recuperación de contraseña válido.",
+			"new-pwd-saved": "La contraseña ha sido cambiada.",
+			"user-data-saved": "La información se ha guardado correctamente.",
+			"email-verification-sent": "El correo de verificación se ha enviado.",
+			"email-verified": "El correo ha sido verificado.",
+			"new-pwd-saved": "La nueva contraseña se guardó correctamente."
+		},
+		"error": {
+			"email-field-empty": "El correo está vacío",
+			"pwd-field-empty": "La contraseña está vacía.",
+			"user-deleted": "Tu cuenta ha sido eliminada.",
+			"account-suspended": "Tu cuenta se ha suspendido por ",
+			"login-failed-3-times": "El inicio de sesió falló 3 veces o más. Por favor espere 30 segundos para volver a intentarlo.",
+			"email-or-pwd-wrong": "La combinación de email y contraseña no es válida.",
+			"pwd-wrong-3-times": "Has ingresado 3 o más veces la contraseña incorrecta. Por favor espera 30 segundos para volver a intentarlo.",
+			"account-not-active": "Tu cuenta aún no ha sido activada.",
+			"cookie-invalid": "El cookie no es válido.",
+			"cookie-login-successful": "Inicio de sesión con cookie exitoso.",
+			"username-field-empty": "El nombre está vacío.",
+			"pwd-confirm-field-empty": "La confirmación de la contraseña está vacía.",
+			"email-invalid": "El correo no es válido.",
+			"pwd-length-invalid": "La contraseña debe tener al menos 6 caracteres.",
+			"pwd-no-match": "La contraseña y la confirmación no coinciden.",
+			"email-taken": "El correo ya está registrado.",
+			"error-generic": "Ocurrió un error.",
+			"verification-mail-error": "El correo de verificación no se ha enviado.",
+			"account-activation-error": "El codigo de activación es incorrecto.",
+			"email-not-registered": "El correo no existe.",
+			"reset-token-failed": "No se pudo guardar el token de seguridad.",
+			"email-pwd-not-sent": "No se puedo enviar correo con recuperación de contraseña.",
+			"pwd-reset-not-valid": "El código de recuperación de contraseña no válido.",
+			"pwd-reset-expired": "El código de recuperación de contraseña ha expirado.",
+			"email-token-not-saved": "El código de verificación de email no se ha enviado.",
+			"email-verification-not-sent": "El correo de verificación se ha enviado."
+			
+		},
+		"info": {
+			"user-data-not-changed": "La información no ha cambiado.",
+			"verify-email": "Por favor verifique su correo."
+		}
+	}
+}
