@@ -2,9 +2,9 @@
 
 class ApiController extends Controller {
 
-	public function viewSession() {
+	public function viewNearestPOI() {
 		$json = array();
-		$json['test'] = $this;
+		$json['json'] = MapModel::nearestPOI();
 		$this->View->renderJSON($json);
 	}
 
