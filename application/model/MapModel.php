@@ -33,6 +33,7 @@ class MapModel {
 				$distance = $miles;
 			}
 		}
+		//echo($distance);
 
 		$database = DatabaseFactory::getFactory()->getConnection();
 		$sql = "SELECT poi_id, poi_lat, poi_long, poi_desc, poi_cat FROM TB_POI WHERE poi_id = :id LIMIT 1";
@@ -49,16 +50,25 @@ class MapModel {
 		$name = Request::post('name');
 		$desc = Request::post('desc');
 		$cat = Request::post('cat');
+		$it = Request::post('it');
 
 		if (empty($lat)) {
 			$json['result'] = '0';
 			$json['message'] = 'La latitud se encuentra vacía.';
+			return $json;
+		} elseif(!is_numeric($lat)) {
+			$json['result'] = '0';
+			$json['message'] = 'La latitud debe ser numérica.';
 			return $json;
 		}
 
 		if (empty($long)) {
 			$json['result'] = '0';
 			$json['message'] = 'La longitud se encuentra vacía.';
+			return $json;
+		} elseif(!is_numeric($long)) {
+			$json['result'] = '0';
+			$json['message'] = 'La longitud debe ser numérica.';
 			return $json;
 		}
 
@@ -74,19 +84,25 @@ class MapModel {
 			return $json;
 		}
 
-		$data = array(
-			'poi_lat' => $lat,
-			'poi_long' => $long,
-			'poi_name' => $name,
-			'poi_desc' => $desc
-		);
+		if (empty($cat)) {
+			$json['result'] = '0';
+			$json['message'] = 'La categoría se encuentra vacía.';
+			return $json;
+		}
+
+		if (empty($it)) {
+			$json['result'] = '0';
+			$json['message'] = 'El itinerario se encuentra vacía.';
+			return $json;
+		}
 
 		$database = DatabaseFactory::getFactory()->getConnection();
-		$sql = "INSERT INTO TB_POI (poi_name, poi_cat, poi_desc, poi_lat, poi_long) VALUES (:name, :cat, :desc, :lat, :long)";
+		$sql = "INSERT INTO TB_POI (poi_name, poi_cat, poi_it, poi_desc, poi_lat, poi_long) VALUES (:name, :cat, :it, :desc, :lat, :long)";
 		$query = $database->prepare($sql);
 		$query->execute(array(
 			':name' => $name,
 			':cat' => $cat,
+			':it' => $it,
 			':desc' => $desc,
 			':lat' => $lat,
 			':long' => $long
