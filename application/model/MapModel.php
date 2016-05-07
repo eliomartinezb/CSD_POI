@@ -2,16 +2,16 @@
 
 class MapModel {
 
-	public static function nearestPOI() {
-		$lat1 = Request::post('lat_user');
-		$lon1 = Request::post('long_user');
+	public static function nearestPOI($lat1, $lon1, $service) {
 		$poi_id = '';
 		$distance = 0;
 
 		$database = DatabaseFactory::getFactory()->getConnection();
 		$sql = "SELECT poi_id, poi_lat, poi_long FROM TB_POI";
 		$query = $database->prepare($sql);
-		$query->execute();
+		$query->execute(array(
+			':service' => $service
+		));
 
 		$pois = $query->fetchAll();
 
@@ -33,15 +33,29 @@ class MapModel {
 				$distance = $miles;
 			}
 		}
-		//echo($distance);
 
 		$database = DatabaseFactory::getFactory()->getConnection();
-		$sql = "SELECT poi_id, poi_lat, poi_long, poi_desc, poi_cat FROM TB_POI WHERE poi_id = :id LIMIT 1";
+		$sql = "SELECT poi_id, poi_name, poi_lat, poi_long, poi_desc, poi_cat FROM TB_POI WHERE poi_id = :id LIMIT 1";
 		$query = $database->prepare($sql);
 		$query->execute(array(':id' => $poi_id));
 
 		return $query->fetchAll();
 	}
+
+	public static function mapPOI($mapa,$servicio) {
+
+		$database = DatabaseFactory::getFactory()->getConnection();
+		$sql = "SELECT p.POI_NAME, p.POI_DESC,p.POI_LAT,p.POI_LONG, p.POI_SERVICIO, m.MAPA_NAME FROM TB_POI p, TB_MAPA m, TB_POI_MAPA pm WHERE pm.POI_ID = p.POI_ID and pm.MAPA_ID = m.MAPA_ID and m.MAPA_ID = :mapa and p.POI_SERVICIO = :servicio";
+		$query = $database->prepare($sql);
+		$query->execute(array(
+			':mapa' => $mapa,
+			':servicio' => $servicio,
+		));
+
+		return $query->fetchAll();
+
+	}
+
 
 	public static function addPoint(){
 		$json = array();
